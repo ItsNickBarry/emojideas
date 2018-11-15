@@ -36,10 +36,10 @@ The constructor accepts several options.
 
 ```javascript
 require('emojilib').lib.aerial_tramway;
- // => { keywords: [ 'transportation', 'vehicle', 'ski' ],
- //      char: '🚡',
- //      fitzpatrick_scale: false,
- //      category: 'travel_and_places' }
+// => { keywords: [ 'transportation', 'vehicle', 'ski' ],
+//      char: '🚡',
+//      fitzpatrick_scale: false,
+//      category: 'travel_and_places' }
 
 let e = new Emojideas({ excludeCategories: ['travel_and_places'] });
 e.suggest('aerial tramway');
