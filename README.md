@@ -54,6 +54,7 @@ g.suggest('aerial tramway');
 // => []
 
 let h = new Emojideas({ formatOutput: el => [el.ref, el.score] });
+h.suggest('aerial tramway');
 // => [ [ '🚡', 25.417660356531634 ] ]
 ```
 
