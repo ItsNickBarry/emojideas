@@ -1,6 +1,6 @@
 # Emojideas
 
-Text-to-emoji suggestion library with a [Lunr](https://github.com/olivernn/lunr.js) and [emojilib](https://github.com/muan/emojilib) backend.
+Text-to-emoji suggestion library with a [Lunr](https://github.com/olivernn/lunr.js) and [emojilib](https://github.com/muan/emojilib) backend.  Suggestions are based on emoji name and keywords.
 
 ## Usage
 
@@ -61,3 +61,25 @@ h.suggest('aerial tramway');
 ### Lunr
 
 All queries are passed directly to the Lunr backend, and can therefore use the [Lunr syntax](https://lunrjs.com/guides/searching.html), except when the `fuzzy` option has been set.
+
+```javascript
+require('emojilib').lib.tram;
+// => { keywords: [ 'transportation', 'vehicle' ],
+//      char: '🚊',
+//      fitzpatrick_scale: false,
+//      category: 'travel_and_places' }
+
+let e = new Emojideas();
+
+e.suggest('tram');
+// => [ '🚊' ]
+
+e.suggest('tram*');
+// => [ '🚊', '🚡' ]
+
+e.suggest('aerial tram*');
+// => [ '🚡', '🚊' ]
+
+e.suggest('tram* -tram');
+// => [ '🚡' ]
+```
