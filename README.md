@@ -6,7 +6,7 @@ Text-to-emoji suggestion library with a [Lunr](https://github.com/olivernn/lunr.
 
 Install the library:
 
-```
+```bash
 npm install --save emojideas
 ```
 
@@ -82,4 +82,27 @@ e.suggest('aerial tram*');
 
 e.suggest('tram* -tram');
 // => [ '🚡' ]
+```
+
+### CLI
+
+A command line search implementation based on [Commander](https://github.com/tj/commander.js) is included.
+
+Install the library globally:
+
+```bash
+npm install -g emojideas
+```
+
+Run a query:
+
+```bash
+emojideas aerial tramway
+# => [ '🚡' ]
+```
+
+To see available options:
+
+```bash
+emojideas --help
 ```
