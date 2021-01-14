@@ -1,14 +1,10 @@
-let assert = require('assert');
-let emojilib = require('emojilib');
+const assert = require('assert');
+const emojilib = require('emojilib');
 
-let Emojideas = require('./index.js');
+const Emojideas = require('./index.js');
 
-let emojiName = 'aerial tramway';
-let emoji = emojilib.lib[emojiName.replace(' ', '_')];
-// => { keywords: [ 'transportation', 'vehicle', 'ski' ],
-//      char: '🚡',
-//      fitzpatrick_scale: false,
-//      category: 'travel_and_places' }
+const emoji = '🚡';
+const [emojiName, ...keywords] = emojilib[emoji];
 
 describe('Emojideas', function () {
   describe('#suggest', function () {
@@ -16,19 +12,19 @@ describe('Emojideas', function () {
       let emojideas = new Emojideas();
 
       it('returns an array', function () {
-        let result = emojideas.suggest();
+        let result = emojideas.suggest('');
         assert(result instanceof Array);
       });
 
       it('searches by name (converted from snake case)', function () {
         let result = emojideas.suggest(emojiName);
-        assert(result.includes(emoji.char));
+        assert(result.includes(emoji));
       });
 
       it('searches by keywords', function () {
-        emoji.keywords.forEach(function (keyword) {
+        keywords.forEach(function (keyword) {
           let result = emojideas.suggest(keyword);
-          assert(result.includes(emoji.char));
+          assert(result.includes(emoji));
         });
       });
 
@@ -40,16 +36,7 @@ describe('Emojideas', function () {
 
       it('searches by standard Lunr syntax', function () {
         let result = emojideas.suggest(`+${ emojiName }~2 -asdf`);
-        assert(result.includes(emoji.char));
-      });
-    });
-
-    describe('when excludeCategories Array is set', function () {
-      let emojideas = new Emojideas({ excludeCategories: [emoji.category] });
-
-      it('excludes categories', function () {
-        let result = emojideas.suggest(emojiName);
-        assert(!result.includes(emoji.char));
+        assert(result.includes(emoji));
       });
     });
 
@@ -59,7 +46,7 @@ describe('Emojideas', function () {
 
         it('allows one-character spelling errors', function () {
           let result = emojideas.suggest(emojiName.slice(1));
-          assert(result.includes(emoji.char));
+          assert(result.includes(emoji));
         });
       });
 
@@ -68,7 +55,7 @@ describe('Emojideas', function () {
 
         it('allows two-character spelling errors', function () {
           let result = emojideas.suggest(emojiName.slice(2));
-          assert(result.includes(emoji.char));
+          assert(result.includes(emoji));
         });
       });
     });
@@ -79,7 +66,7 @@ describe('Emojideas', function () {
 
         it('excludes name from search', function () {
           let result = emojideas.suggest(emojiName);
-          assert(!result.includes(emoji.char));
+          assert(!result.includes(emoji));
         });
       });
 
@@ -88,7 +75,7 @@ describe('Emojideas', function () {
 
         it('prioritizes name in search', function () {
           let result = emojideas.suggest(emojiName);
-          assert.equal(result[0], emoji.char);
+          assert.equal(result[0], emoji);
         });
       });
     });
@@ -110,7 +97,7 @@ describe('Emojideas', function () {
         it('outputs Array of ref and score', function () {
           let result = emojideas.suggest(emojiName);
           assert(result[0] instanceof Array);
-          assert.equal(result[0][0], emoji.char);
+          assert.equal(result[0][0], emoji);
           assert(typeof result[0][1] === 'number');
         });
       });

@@ -1,8 +1,7 @@
-const emoji = require('emojilib');
+const emojilib = require('emojilib');
 const lunr = require('lunr');
 
 const DEFAULT_OPTIONS = {
-  excludeCategories: [],
   fuzzy: 0,
   nameBoost: 3,
   formatOutput: el => el.ref,
@@ -16,7 +15,7 @@ let Emojideas = function (options) {
 };
 
 Emojideas.prototype.suggest = function (input) {
-  return this._index.search(this._processInput(input)).map(this.options.formatOutput);
+  return this._index.search(this._processInput(input.replace('_', ' '))).map(this.options.formatOutput);
 };
 
 Emojideas.prototype._processInput = function (input) {
@@ -26,19 +25,13 @@ Emojideas.prototype._processInput = function (input) {
 Emojideas.prototype._buildIndex = function (options) {
   let lib = {};
 
-  let exclusions = new Set(options.excludeCategories);
+  for (let key in emojilib) {
+    let [name, ...keywords] = emojilib[key];
 
-  for (var key in emoji.lib) {
-    let el = emoji.lib[key];
-
-    if (exclusions.has(el.category)) {
-      continue;
-    }
-
-    lib[key] = {
-      char: el.char,
-      name: key.replace('_', ' '),
-      keywords: el.keywords.join(' '),
+    lib[name] = {
+      char: key,
+      name: name.replace('_', ' '),
+      keywords: keywords.join(' '),
     };
   }
 

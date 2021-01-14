@@ -1,13 +1,13 @@
 {
   "name": "emojideas",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Suggest Emoji based on name or keyword.",
   "bin": "cli.js",
   "main": "index.js",
   "dependencies": {
-    "commander": "^3.0.2",
-    "emojilib": "^2.4.0",
-    "lunr": "^2.3.8"
+    "commander": "^6.2.1",
+    "emojilib": "^3.0.0",
+    "lunr": "^2.3.9"
   },
   "devDependencies": {
     "mocha": "^5.2.0"
