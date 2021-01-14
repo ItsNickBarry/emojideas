@@ -8,6 +8,8 @@ Install the library:
 
 ```bash
 npm install --save emojideas
+# or
+yarn add emojideas
 ```
 
 Require the module, create an instance, and call the `suggest` function on some text:
@@ -92,6 +94,8 @@ Install the library globally:
 
 ```bash
 npm install -g emojideas
+# or
+yarn global add emojideas
 ```
 
 Run a query:
