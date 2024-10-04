@@ -6,7 +6,7 @@
   "main": "index.js",
   "dependencies": {
     "commander": "^6.2.1",
-    "emojilib": "^3.0.0",
+    "emojilib": "^4.0.0",
     "lunr": "^2.3.9"
   },
   "devDependencies": {

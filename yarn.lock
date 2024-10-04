@@ -47,10 +47,10 @@ diff@3.5.0:
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
   integrity sha512-A46qtFgd+g7pDZinpnwiRJtxbC1hpgf0uzP3iG89scHk0AUC7A1TGxf5OiiOUv/JMZR8GOt8hL900hV0bOy5xA==
 
-emojilib@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/emojilib/-/emojilib-3.0.0.tgz#6d3554c2e575e0fb24b411a5bb78e785dbaf4880"
-  integrity sha512-Opb7qfOR/dn0u+ueVYrmCnxrHAgLmaDtAiQ9ogYQcEhwG+MPnuilZey5Y6VVlVXk531JRIGKYIUhySgNqLCfiw==
+emojilib@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/emojilib/-/emojilib-4.0.0.tgz#dc063207933d5b4fcff524cfbf1da57f0ed8f233"
+  integrity sha512-nHdbvbIuWi/KrZESwJw5meOSK6S3uokcvBooIpNp9leDtVJWW091drLm8pwF2B7JrMq0UPgGJ7Haw+myeRaU8g==
 
 escape-string-regexp@1.0.5:
   version "1.0.5"
